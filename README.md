@@ -28,7 +28,7 @@ A fully playable 3D stealth game built in Unity. The player must navigate a haun
 *   **Mouse Clicks:** Menu Navigation
 
 ### How to Play via Unity Play (WebGL)
-1.  Click the official **Unity Play Game Link** provided in your submission.
+1.  Click the official **Unity Play Game Link** provided in my submission.
 2.  Wait for the WebGL loader to finish loading the game asset inside your web browser.
 3.  Click the **Fullscreen** icon in the bottom-right corner of the player canvas for the best gameplay experience.
 4.  Click **PLAY** on the Main Menu to begin Level 1.
