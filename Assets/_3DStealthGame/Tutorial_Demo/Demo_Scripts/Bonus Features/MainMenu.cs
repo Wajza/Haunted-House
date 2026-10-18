@@ -24,13 +24,20 @@ namespace StealthGame
 
             m_StartButton.clicked += () =>
             {
-                //The game scene needs to be set in the Build Profile Scene List
                 SceneManager.LoadScene(1);
             };
 
             m_ExitButton.clicked += () =>
             {
+                Time.timeScale = 0;
+
+                #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+                #elif UNITY_WEBGL
+                Debug.Log("Game Quit triggered in WebGL browser window.");
+                #else
                 Application.Quit();
+                #endif
             };
         }
     }
