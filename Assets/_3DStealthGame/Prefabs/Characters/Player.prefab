@@ -148,7 +148,7 @@ MonoBehaviour:
       m_Flags: 8
     m_Flags: 0
     m_Priority: 0
-  walkSpeed: 1
+  walkSpeed: 3
   turnSpeed: 20
 --- !u!95 &6598414540121575997
 Animator:
