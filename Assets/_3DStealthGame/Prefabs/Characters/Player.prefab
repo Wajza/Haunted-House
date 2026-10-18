@@ -101,7 +101,7 @@ MonoBehaviour:
   MoveAction:
     m_Name: Move
     m_Type: 0
-    m_ExpectedControlType: 
+    m_ExpectedControlType: Vector2
     m_Id: 9790ae85-5c4f-48e9-8f1a-816feff8b1ee
     m_Processors: 
     m_Interactions: 
@@ -161,8 +161,8 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 4d7b34bc56da58746ab5ca5a13fe1685, type: 3}
   m_Controller: {fileID: 9100000, guid: f8ba127f63582924e92e4617fadf6391, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 1
+  m_CullingMode: 0
+  m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -240,7 +240,23 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: f8ba127f63582924e92e4617fadf6391, type: 2}
-    m_RemovedComponents: []
+    - target: {fileID: 5866666021909216657, guid: 4d7b34bc56da58746ab5ca5a13fe1685,
+        type: 3}
+      propertyPath: m_UpdateMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 4d7b34bc56da58746ab5ca5a13fe1685,
+        type: 3}
+      propertyPath: m_AnimatePhysics
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 4d7b34bc56da58746ab5ca5a13fe1685,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5866666021909216657, guid: 4d7b34bc56da58746ab5ca5a13fe1685, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
