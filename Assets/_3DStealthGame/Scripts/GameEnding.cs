@@ -59,19 +59,31 @@ public class GameEnding : MonoBehaviour
         }
             
         m_Timer += Time.deltaTime;
-        element.style.opacity = m_Timer / fadeDuration;
+        element.style.opacity = Mathf.Clamp01(m_Timer / fadeDuration);
 
         if (m_Timer > fadeDuration + displayImageDuration)
         {
             if (doRestart)
             {
-                SceneManager.LoadScene (0);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
             else
             {
-                Application.Quit();
-                Time.timeScale = 0;
-               
+                int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+                
+                if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+                {
+                    SceneManager.LoadScene(nextSceneIndex);
+                }
+                else
+                {
+                    Time.timeScale = 0;
+                    Application.Quit();
+                    
+                    #if UNITY_EDITOR
+                    UnityEditor.EditorApplication.isPlaying = false;
+                    #endif
+                }
             }
         }
     }
