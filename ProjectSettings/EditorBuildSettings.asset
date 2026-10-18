@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_3DStealthGame/Scenes/MainMenu.unity
+    guid: 6eb60882a6eaa4942b5ddd6438f77c85
+  - enabled: 1
     path: Assets/_3DStealthGame/Scenes/Main.unity
     guid: 8c9afe431cabcbb4dbf844ddd2a5018b
   - enabled: 1
