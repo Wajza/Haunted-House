@@ -5,6 +5,7 @@ using UnityEngine;
 public class Observer : MonoBehaviour
 {
     public Transform player;
+    public GameEnding gameEnding;
     bool m_IsPlayerInRange;
 
     void OnTriggerEnter (Collider other)
@@ -33,10 +34,7 @@ public class Observer : MonoBehaviour
 
             if(Physics.Raycast(ray, out raycastHit))
             {
-                if (raycastHit.collider.transform == player)
-                {
-                    Debug.Log("Player was caught!");
-                }
+                gameEnding.CaughtPlayer();
             }
         }
     }
