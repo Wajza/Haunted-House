@@ -15,7 +15,8 @@ A fully playable 3D stealth game built in Unity. The player must navigate a haun
 ### 🌟 Bonus Extensions Implemented
 1.  **Custom Level 2:** Designed and engineered a fully custom second map layer, extending the gameplay beyond the standard single-level course template.
 2.  **Dynamic Level Transitions:** Programmed the game-ending states to dynamically detect the current scene index, automatically reloading the active level on death and advancing to Level 2 upon victory.
-3.  **NavMesh AI Patrol Routing:** Configured a custom navigation mesh baking layer to handle smart AI enemy pathfinding calculation along patrol routes.
+3.  **NavMesh AI Patrol Routing:** Configured a custom navigation mesh baking layer to handle smart AI enemy pathfinding calculation along patrol routes. 
+    *   *Statement of Level Routing:* **Level 1 uses the standard tutorial waypoint system for enemy pathing, while Level 2 is the only level that utilizes the NavMesh AI routing system.**
 4.  **Dynamic Player Footstep Audio:** Synchronized a physical script listener to toggle continuous dynamic footstep sound effects only when walking velocity is detected.
 5.  **UI Toolkit Main Menu:** Built an interactive home screen using modern UI Toolkit (UXML) elements featuring functioning `PLAY` and `QUIT` system triggers.
 
