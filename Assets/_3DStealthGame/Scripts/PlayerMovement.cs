@@ -42,22 +42,25 @@ public class PlayerMovement : MonoBehaviour
 
         if (isWalking)
         {
-            Vector3 desiredForward = Vector3.RotateTowards (transform.forward, m_Movement, turnSpeed * Time.deltaTime, 0f);
+            if (!m_AudioSource.isPlaying)
+            {
+                m_AudioSource.Play();
+            }
+        }
+        else
+        {
+            m_AudioSource.Stop();
+        }
+
+        if (isWalking)
+        {
+            Vector3 desiredForward = Vector3.RotateTowards (transform.forward, m_Movement, turnSpeed * Time.fixedDeltaTime, 0f);
             m_Rotation = Quaternion.LookRotation (desiredForward);
             m_Rigidbody.MoveRotation (m_Rotation);
         }
         
-        m_Rigidbody.MovePosition (m_Rigidbody.position + m_Movement * walkSpeed * Time.deltaTime);
-        if (isWalking)
-{
-    if (!m_AudioSource.isPlaying)
-    {
-        m_AudioSource.Play();
-    }
-}
-else
-{
-    m_AudioSource.Stop();
-}
+        Vector3 targetVelocity = m_Movement * walkSpeed;
+        targetVelocity.y = m_Rigidbody.linearVelocity.y; 
+        m_Rigidbody.linearVelocity = targetVelocity;
     }
 }
