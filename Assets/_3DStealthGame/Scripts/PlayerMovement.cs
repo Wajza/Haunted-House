@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody m_Rigidbody;
     Vector3 m_Movement;
+    Vector2 m_InputVector; // Added to store input safely
     Quaternion m_Rotation = Quaternion.identity;
 
     void Start ()
@@ -24,12 +25,17 @@ public class PlayerMovement : MonoBehaviour
         m_AudioSource = GetComponent<AudioSource>();
     }
 
+    void Update()
+    {
+        // Continuously catches every hardware input frame cleanly
+        m_InputVector = MoveAction.ReadValue<Vector2>();
+    }
+
     void FixedUpdate ()
     {
-        var pos = MoveAction.ReadValue<Vector2>();
-        
-        float horizontal = pos.x;
-        float vertical = pos.y;
+        // Uses the cached vector for physics calculations
+        float horizontal = m_InputVector.x;
+        float vertical = m_InputVector.y;
         
         m_Movement.Set(horizontal, 0f, vertical);
         m_Movement.Normalize ();
@@ -62,5 +68,11 @@ public class PlayerMovement : MonoBehaviour
         Vector3 targetVelocity = m_Movement * walkSpeed;
         targetVelocity.y = m_Rigidbody.linearVelocity.y; 
         m_Rigidbody.linearVelocity = targetVelocity;
+    }
+
+    private void OnDestroy()
+    {
+        // Prevents internal memory leaks from active inputs
+        MoveAction.Disable();
     }
 }
